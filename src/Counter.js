@@ -1,15 +1,11 @@
 import { Component } from 'react';
 
 class Counter extends Component {
-  // constructor를 사용하여 state 설정
-  constructor(props) {
-    super(props); // constructor 사용 시, 반드시 super 호출
-    // state의 초깃값 설정하기
-    this.state = {
-      number: 0,
-      fixedNumber: 0,
-    };
-  }
+  // state의 초깃값 설정하기 - constructor 메서드를 선언하지 않고도 state 초깃값 설정
+  state = {
+    number: 0,
+    fixedNumber: 0,
+  };
   render() {
     const { number, fixedNumber } = this.state; // state를 조회할 때는 this.state로 조회
     return (
