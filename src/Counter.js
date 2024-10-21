@@ -16,18 +16,15 @@ class Counter extends Component {
           // onClick을 통해 버튼이 클릭되었을 때 호출할 함수 지정
           onClick={() => {
             //this.setState를 통하여 state에 새로운 값을 넣을 수 있음
-            this.setState({ number: number + 1 });
-            // this.setState({ number: this.state.number + 1 }); // setState를 두 번 사용해도 숫자는 1씩 더해짐
-            this.setState((prevState) => {
-              return {
-                number: prevState.number + 1,
-              };
-            });
-            // 위 코드와 아래 코드는 같은 기능
-            // 아래 코드는 함수에서 바로 객체를 반환
-            this.setState((prevState) => ({
-              number: prevState.number + 1,
-            }));
+            this.setState(
+              {
+                number: number + 1
+              },
+              () => {
+                console.log('방금 setState가 호출되었습니다.');
+                console.log(this.state);
+              }
+            );
           }}
         >
           +1
