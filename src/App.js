@@ -2,7 +2,12 @@ import React from 'react';
 import ScrollBox from './ScrollBox';
 
 const App = () => {
-  return <ScrollBox />; // 5.3.2-2 App 컴포넌트에서 스크롤 박스 컴포넌트 렌더링
+  return (
+    <div>
+      <ScrollBox ref={(ref) => (this.scrollBox = ref)} />
+      <button onClick={() => this.scrollBox.scrollToBottom()}>맨 밑으로</button>
+    </div>
+  );
 };
 
 export default App;
