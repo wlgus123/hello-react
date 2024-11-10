@@ -11,10 +11,19 @@ const IterationSample = () => {
   const [inputText, setInputText] = useState('');
   const [nextId, setNextId] = useState(5); // 새로운 항목을 차가할 때 사용할 id
 
+  const onChange = (e) => setInputText(e.target.value);
+
   // map을 사용하여 리스트 출력
-  const nameList = names.map((name) => <li key={name.id}>{name.text}</li>);
+  const namesList = names.map((name) => <li key={name.id}>{name.text}</li>);
   // -> Warning: "key" prop이 없습니다. -> li에 key 주면 해결
-  return <ul>{nameList}</ul>;
+  return (
+    <>
+      {/* input, button 렌더링 */}
+      <input value={inputText} onChange={onChange} />
+      <button>추가</button>
+      <ul>{namesList}</ul>
+    </>
+  );
 };
 
 export default IterationSample;
