@@ -21,9 +21,18 @@ const IterationSample = () => {
     setNames(nextNames); // names 값을 업데이트한다.
     setInputText(''); // inputText를 비운다.
   };
+  // filter를 사용하여 항목 제거
+  const onRemove = (id) => {
+    const nextNames = names.filter((name) => name.id !== id);
+    setNames(nextNames);
+  };
 
   // map을 사용하여 리스트 출력
-  const namesList = names.map((name) => <li key={name.id}>{name.text}</li>);
+  const namesList = names.map((name) => (
+    <li key={name.id} onDoubleClick={() => onRemove(name.id)}>
+      {name.text}
+    </li>
+  ));
   // -> Warning: "key" prop이 없습니다. -> li에 key 주면 해결
   return (
     <>
